@@ -7,7 +7,7 @@ import com.example.telegramBot.student.command.commands.ScheduleComm;
 import com.example.telegramBot.student.command.commands.HomeWorkComm;
 
 import com.example.telegramBot.user.command.commands.*;
-import com.example.web.dao.service.StatisticUserService;
+import com.example.telegramBot.service.StatisticUserService;
 import com.google.common.collect.ImmutableMap;
 import org.telegram.telegrambots.meta.api.objects.Update;
 

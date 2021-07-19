@@ -1,7 +1,7 @@
 package com.example.telegramBot.user.command.commands;
 
 import com.example.telegramBot.service.SendBotMessageService;
-import com.example.web.dao.service.StatisticUserService;
+import com.example.telegramBot.service.StatisticUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class StopComm implements Command{
