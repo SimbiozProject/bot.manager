@@ -1,10 +1,11 @@
 HELP.md
 .gradle
 build/
-target/
+/target
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+target/
 
 ### STS ###
 .apt_generated
@@ -39,5 +40,3 @@ out/
 
 # resources
 src/main/resources/*.properties
-
-
