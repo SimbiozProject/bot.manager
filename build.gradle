@@ -23,6 +23,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation("io.springfox:springfox-boot-starter:3.0.0")
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -34,6 +35,14 @@ dependencies {
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.0-rc1'
 // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version: '2.5.3'
+// https://mvnrepository.com/artifact/org.telegram/telegrambots-spring-boot-starter
+	implementation group: 'org.telegram', name: 'telegrambots-spring-boot-starter', version: '4.1.2'
+// https://mvnrepository.com/artifact/org.telegram/telegrambots
+	implementation group: 'org.telegram', name: 'telegrambots', version: '4.1.2'
+// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.24'
+// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
 
 
 }
