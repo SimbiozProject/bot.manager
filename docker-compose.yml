@@ -6,7 +6,7 @@ services:
     restart: always
     image: postgres
     ports:
-      - 5432:5432
+      - 5435:5432
     environment:
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: bot_db
