@@ -9,17 +9,27 @@ import com.example.telegramBot.student.command.commands.HomeWorkComm;
 import com.example.telegramBot.user.command.commands.*;
 import com.example.telegramBot.service.StatisticUserService;
 import com.google.common.collect.ImmutableMap;
+import javax.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static com.example.telegramBot.user.command.CommandName.*;
 
+@Service
 public class UserCommandHandler {
+    private ImmutableMap<String, Command> commandMap;
+    private Command unknownComm;
+    @Autowired
+    private  MainMenuComm mainMenuComm;
+    @Autowired
+    private  SendBotMessageService sendBotMessageService;
+    @Autowired
+    private  StatisticUserService statisticUserService;
 
-    private final ImmutableMap<String, Command> commandMap;
-    private final Command unknownComm;
-
-    public UserCommandHandler(SendBotMessageService sendBotMessageService, StatisticUserService statisticUserService) {
-
+    @PostConstruct
+    public void createCommandMap( ){
         commandMap = ImmutableMap.<String, Command>builder()
                 //.put(START.getCommandName(), new StartComm(sendBotMessageService))
                 .put(HELLO.getCommandName(), new HelloComm(sendBotMessageService))
@@ -29,12 +39,12 @@ public class UserCommandHandler {
                 .put(START_TEST.getCommandName(), new StartTestComm(sendBotMessageService))
                 .put(TEST.getCommandName(), new TestComm(sendBotMessageService))
                 //.put(MAIN_MENU.getCommandName(), new MainMenuComm(sendBotMessageService))
-                .put(START.getCommandName(), new MainMenuComm(sendBotMessageService, statisticUserService))
+                .put(START.getCommandName(), mainMenuComm)
                 .put(SELECTION_COURSE.getCommandName(), new SelectionCourseComm(sendBotMessageService))
                 .put(LEVEL_ZERO_MENU.getCommandName(), new LevelZeroComm(sendBotMessageService))
                 .put(LEVEL_ADVANCED_MENU.getCommandName(), new LevelAdvancedComm(sendBotMessageService))
                 .put(RETURN_TO_SELECTION_COURSE.getCommandName(), new SelectionCourseComm(sendBotMessageService))
-                .put(RETURN_TO_MAIN_MENU.getCommandName(), new MainMenuComm(sendBotMessageService, statisticUserService))
+                .put(RETURN_TO_MAIN_MENU.getCommandName(),mainMenuComm)
                 .put(INFO.getCommandName(), new InfoComm(sendBotMessageService))
                 .put(GROUPS.getCommandName(), new GroupsComm(sendBotMessageService))
                 .put(FAQ.getCommandName(), new FaqComm(sendBotMessageService))
@@ -50,7 +60,6 @@ public class UserCommandHandler {
 
         unknownComm = new UnknownComm(sendBotMessageService);
     }
-
 
     public void handle(Update update) {
         if (update.hasMessage()) {
