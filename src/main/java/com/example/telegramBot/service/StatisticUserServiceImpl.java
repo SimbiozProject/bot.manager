@@ -11,12 +11,12 @@ import java.util.Optional;
 @Service
 public class StatisticUserServiceImpl implements StatisticUserService {
 
-    private final StatisticUserRepository statisticUserRepository;
+    private StatisticUserRepository statisticUserRepository;
 
-    @Autowired
-    public StatisticUserServiceImpl(StatisticUserRepository statisticUserRepository) {
-        this.statisticUserRepository = statisticUserRepository;
-    }
+//    @Autowired
+//    public StatisticUserServiceImpl(StatisticUserRepository statisticUserRepository) {
+//        this.statisticUserRepository = statisticUserRepository;
+//    }
 
 
     @Override
